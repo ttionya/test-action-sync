@@ -6,9 +6,10 @@ if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
 
-  echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+  ssh-keyscan github.com > ~/.ssh/known_hosts
+  # echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
   cat ~/.ssh/known_hosts
-  chmod 644 ~/.ssh/known_hosts
+  # chmod 644 ~/.ssh/known_hosts
 fi
 
 echo "GITHUB_SHA: ${GITHUB_SHA}"
