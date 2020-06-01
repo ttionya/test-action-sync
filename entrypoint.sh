@@ -14,6 +14,7 @@ echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
 echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
 echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
 echo "target_repository: ${target_repository}"
+echo "target_repository: ${INPUT_TARGET_REPOSITORY}"
 
 echo "ls pwd"
 ls -la
