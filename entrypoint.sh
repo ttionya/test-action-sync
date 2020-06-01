@@ -6,10 +6,10 @@ if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
 
-  ssh-keyscan github.com > ~/.ssh/known_hosts
-  # echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+  # ssh-keyscan github.com > ~/.ssh/known_hosts
+  echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
   cat ~/.ssh/known_hosts
-  # chmod 644 ~/.ssh/known_hosts
+  chmod 644 ~/.ssh/known_hosts
 fi
 
 echo "GITHUB_SHA: ${GITHUB_SHA}"
@@ -30,6 +30,9 @@ git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
 
 ssh git@github.com
+if [[ $? != 0 ]]; then
+  exit 1
+fi
 
 if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
   git push target "${GITHUB_REF}:${GITHUB_REF}" -f --tags
