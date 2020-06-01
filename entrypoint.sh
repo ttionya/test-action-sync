@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if [[ -n "${SSH_PRIVATE_KEY}" ]]; then
+if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "has private key"
   mkdir -p ~/.ssh
-  echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+  echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
 fi
 
