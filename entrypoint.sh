@@ -3,7 +3,7 @@
 if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "has private key"
   mkdir -p ~/.ssh
-  echo "${INPUT_SSH_PRIVATE_KEY}" | tr -d '\n' > ~/.ssh/id_rsa
+  echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
 
   # ssh-keyscan github.com > ~/.ssh/known_hosts
