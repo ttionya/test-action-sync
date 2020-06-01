@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [[ -n "${SSH_PRIVATE_KEY}" ]]; then
   mkdir -p ~/.ssh
