@@ -21,7 +21,7 @@ ls -la
 echo "ls workspace"
 ls -la ${GITHUB_WORKSPACE}
 
-git remote add target ${target_repository}
+git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
 
 if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
