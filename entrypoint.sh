@@ -27,6 +27,8 @@ ls -la ${GITHUB_WORKSPACE}
 git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
 
+ssh git@github.com
+
 if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
   git push target "${GITHUB_REF}:${GITHUB_REF}" -f --tags
 fi
