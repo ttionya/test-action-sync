@@ -29,6 +29,7 @@ ls -la ${GITHUB_WORKSPACE}
 git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
 
+
 ssh git@github.com
 if [[ $? != 0 ]]; then
   exit 1
