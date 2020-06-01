@@ -5,6 +5,9 @@ if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   mkdir -p ~/.ssh
   echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
+
+  echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+  chmod 644 ~/.ssh/known_hosts
 fi
 
 echo "GITHUB_SHA: ${GITHUB_SHA}"

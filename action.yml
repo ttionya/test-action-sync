@@ -11,8 +11,9 @@ inputs:
   ssh_private_key:
     description: 'ssh key'
     required: false
+  known_hosts:
+    description: 'known host'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
