@@ -2,9 +2,9 @@
 
 if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "has private key"
-  mkdir -p ~/.ssh
-  echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_rsa
+  # mkdir -p ~/.ssh
+  # echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+  # chmod 600 ~/.ssh/id_rsa
 
   # ssh-keyscan github.com > ~/.ssh/known_hosts
   # echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
@@ -29,7 +29,7 @@ ls -la ${GITHUB_WORKSPACE}
 git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
 
-ssh git@github.com
+ssh -vT git@github.com
 
 if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
   git push target "${GITHUB_REF}:${GITHUB_REF}" -f --tags
