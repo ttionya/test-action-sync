@@ -3,6 +3,8 @@
 # Docker entrypoint.sh
 # Author: ttionya <git@ttionya.com>
 
+. actions_functions.sh
+
 TARGET_REPOSITORY=${INPUT_TARGET_REPOSITORY}
 
 #################### Function ####################
@@ -72,18 +74,18 @@ function configure_git_remote() {
 #     variables value
 ########################################
 function display_variables() {
-    echo "========================================"
-    echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
-    echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
-    echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
-    echo "GITHUB_SHA: ${GITHUB_SHA}"
-    echo "GITHUB_REF: ${GITHUB_REF}"
-    echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
+    color blue "========================================"
+    color blue "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+    color blue "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
+    color blue "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+    color blue "GITHUB_SHA: ${GITHUB_SHA}"
+    color blue "GITHUB_REF: ${GITHUB_REF}"
+    color blue "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
 
-    echo "TARGET_REPOSITORY: ${TARGET_REPOSITORY}"
-    echo "CURRENT_DIR: $(pwd)"
-    echo "WHOAMI: $(whoami)"
-    echo "========================================"
+    color blue "TARGET_REPOSITORY: ${TARGET_REPOSITORY}"
+    color blue "CURRENT_DIR: $(pwd)"
+    color blue "WHOAMI: $(whoami)"
+    color blue "========================================"
 }
 
 #################### Actions ####################
