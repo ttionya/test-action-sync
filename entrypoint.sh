@@ -2,9 +2,9 @@
 
 if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "has private key"
-  # mkdir -p ~/.ssh
-  # echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
-  # chmod 600 ~/.ssh/id_rsa
+  mkdir -p ~/.ssh
+  echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+  chmod 600 ~/.ssh/id_rsa
 
   # ssh-keyscan github.com > ~/.ssh/known_hosts
   # echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
@@ -29,6 +29,10 @@ echo "ls workspace"
 ls -la ${GITHUB_WORKSPACE}
 echo ".ssh"
 ls -la ~/.ssh/
+echo "root .ssh"
+ls -la /root/.ssh/
+echo "whoami"
+whoami
 
 git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
