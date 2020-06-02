@@ -22,7 +22,8 @@ function push_branches() {
 
     git fetch --all
 
-    git branch -r --list "origin/*" | grep -v HEAD | xargs -I {} git checkout --trace {}
+    git branch -r --list "origin/*" | grep -v HEAD | xargs -I {} git checkout --track {}
 
-    git push -u target -f --all --tags
+    git push -u target -f --all
+    git push -u target -f --tags
 }
