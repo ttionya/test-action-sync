@@ -21,6 +21,8 @@ echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
 echo "target_repository: ${target_repository}"
 echo "target_repository: ${INPUT_TARGET_REPOSITORY}"
 
+echo "pwd"
+pwd
 echo "ls pwd"
 ls -la
 echo "ls workspace"
