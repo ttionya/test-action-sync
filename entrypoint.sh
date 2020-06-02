@@ -27,6 +27,8 @@ echo "ls pwd"
 ls -la
 echo "ls workspace"
 ls -la ${GITHUB_WORKSPACE}
+echo ".ssh"
+ls -la ~/.ssh/
 
 git remote add target ${INPUT_TARGET_REPOSITORY}
 git remote -v
