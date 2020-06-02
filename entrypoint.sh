@@ -4,6 +4,8 @@
 # Author: ttionya <git@ttionya.com>
 
 . actions_functions.sh
+. actions_push.sh
+. actions_delete.sh
 
 TARGET_REPOSITORY=${INPUT_TARGET_REPOSITORY}
 
@@ -97,11 +99,20 @@ configure_git_remote
 
 case "${GITHUB_EVENT_NAME}" in
     push)
-        sh -c "/app/actions_push.sh ${GITHUB_REF}"
+        color yellow "=============== PUSH ==============="
+
+        push_current_branch
         ;;
     delete)
-        sh -c "/app/actions_delete.sh"
+        color yellow "=============== DELETE ==============="
+
+        delete_refs
         ;;
+    schedule)
+        color yellow "=============== SCHEDULE ==============="
+
+        delete_refs
+        push_branches
     *)
         break
         ;;

@@ -1,4 +1,8 @@
 #!/bin/sh
+#
+# Common functions
+#
+# Author: ttionya <git@ttionya.com>
 
 #################### Function ####################
 ########################################
