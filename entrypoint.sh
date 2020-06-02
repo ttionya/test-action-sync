@@ -2,9 +2,12 @@
 
 if [[ -n "${INPUT_SSH_PRIVATE_KEY}" ]]; then
   echo "has private key"
-  mkdir -p ~/.ssh
-  echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_rsa
+  # mkdir -p ~/.ssh
+  # echo "${INPUT_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+  # chmod 600 ~/.ssh/id_rsa
+
+  eval $(ssh-agent -s)
+  echo "${INPUT_SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
 
   # ssh-keyscan github.com > ~/.ssh/known_hosts
   # echo "${INPUT_KNOWN_HOSTS}" > ~/.ssh/known_hosts
