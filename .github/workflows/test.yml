@@ -1,0 +1,35 @@
+name: 'sync-to-other-hub'
+
+on:
+  push:
+  delete:
+
+jobs:
+  gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: ./
+        with:
+          # target_repository: 'git@gitee.com:ttionya/sync-test.git'
+          target_repository: 'https://gitee.com/ttionya/sync-test.git'
+          http_access_name: 'ttionya'
+          # http_access_token: 'testtoken1'
+          http_access_token: ${{ secrets.GITEE_HTTP_ACCESS_TOKEN }}
+          # ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+  github:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.HTTP_ACCESS_TOKEN }}
+      - uses: ./
+        with:
+          # target_repository: 'git@gitee.com:ttionya/sync-test.git'
+          target_repository: 'https://github.com/ttionya/sync-test.git'
+          http_access_name: 'ttionya'
+          # http_access_token: 'testtoken2'
+          http_access_token: ${{ secrets.HTTP_ACCESS_TOKEN }}
